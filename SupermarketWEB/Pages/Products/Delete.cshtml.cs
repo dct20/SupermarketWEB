@@ -25,9 +25,9 @@ namespace SupermarketWEB.Pages.Products
                 return NotFound();
             }
 
-            Product = await _context.Products
-                .Include(p => p.Category) 
-                .FirstOrDefaultAsync(m => m.Id == id);
+           // Product = await _context.Products
+            //    .Include(p => p.Category) 
+              //  .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Product == null)
             {
