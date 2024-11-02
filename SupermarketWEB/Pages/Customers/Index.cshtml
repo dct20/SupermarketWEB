@@ -1,0 +1,79 @@
+﻿@page
+@using SupermarketWEB.Models
+@model SupermarketWEB.Pages.Customers.IndexModel
+@{
+    ViewData["Title"] = "Index Customers";
+}
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</p>
+
+<h1>Index Customers</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].document_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].first_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].last_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].phone_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].birthday)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.document_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @if (item.birthday.HasValue)
+                    {
+                        @item.birthday.Value.ToString("yyyy-MM-dd")
+                    }
+                    else
+                    {
+                        <span>No Date Provided</span>
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
