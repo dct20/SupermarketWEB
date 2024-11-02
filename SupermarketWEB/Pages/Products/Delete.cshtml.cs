@@ -25,9 +25,8 @@ namespace SupermarketWEB.Pages.Products
                 return NotFound();
             }
 
-            // Obtener el producto por su ID y cargar la categoría relacionada
             Product = await _context.Products
-                .Include(p => p.Category) // Incluye la categoría para mostrar su nombre
+                .Include(p => p.Category) 
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Product == null)
