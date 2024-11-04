@@ -21,9 +21,9 @@ namespace SupermarketWEB.Pages.PayModels
 
         public async Task OnGetAsync()
         {
-            if (_context.PayModel != null)
+            if (_context.PayModes != null)
             {
-                PayModels = await _context.PayModel.ToListAsync();
+                PayModels = await _context.PayModes.ToListAsync();
             }
         }
     }
