@@ -1,0 +1,65 @@
+﻿@page
+@model SupermarketWEB.Pages.Providers.IndexModel
+@{
+    ViewData["Title"] = "Index Providers";
+}
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</p>
+
+<h1>Index Providers</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Providers[0].document_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Providers[0].company_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Providers[0].contact_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Providers[0].address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Providers[0].phone_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Providers[0].email)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Providers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.document_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.company_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
