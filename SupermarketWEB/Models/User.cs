@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Autenticacion.Model
 {
@@ -13,9 +14,7 @@ namespace Autenticacion.Model
         [Required]
         public byte[] Password { get; set; }
 
-       
-        [Required(ErrorMessage = "La contraseña es obligatoria.")]
-        [DataType(DataType.Password)]
-        public string PasswordInput { get; set; }
+        [NotMapped]
+        public string PasswordInput { get; set; } 
     }
 }
