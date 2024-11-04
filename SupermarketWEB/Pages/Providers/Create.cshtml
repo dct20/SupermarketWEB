@@ -1,0 +1,59 @@
+﻿@page
+@model SupermarketWEB.Pages.Providers.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h1>Provider</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Provider.document_number" class="control-label"></label>
+                <input asp-for="Provider.document_number" class="form-control" />
+                <span asp-validation-for="Provider.document_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Provider.company_name" class="control-label"></label>
+                <input asp-for="Provider.company_name" class="form-control" />
+                <span asp-validation-for="Provider.company_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Provider.contact_name" class="control-label"></label>
+                <input asp-for="Provider.contact_name" class="form-control" />
+                <span asp-validation-for="Provider.contact_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Provider.address" class="control-label"></label>
+                <input asp-for="Provider.address" class="form-control" />
+                <span asp-validation-for="Provider.address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Provider.phone_number" class="control-label"></label>
+                <input asp-for="Provider.phone_number" class="form-control" />
+                <span asp-validation-for="Provider.phone_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Provider.email" class="control-label"></label>
+                <input asp-for="Provider.email" class="form-control" />
+                <span asp-validation-for="Provider.email" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <a asp-page="Index" class="btn btn-primary">Back To List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
